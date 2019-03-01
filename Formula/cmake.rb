@@ -12,8 +12,8 @@ class Cmake < Formula
     sha256 "91f9da417aa3618fbf1af953188e64c6efd6f77aec56fc54c06e8acd339a6569" => :sierra
   end
 
-    option "with-foo", "Compile with foo bindings" # This overrides the generated description if you want to
-    depends_on "foo" => :optional # Generated description would otherwise be "Build with foo support"
+#option "with-foo", "Compile with foo bindings" # This overrides the generated description if you want to
+#   depends_on "foo" => :optional # Generated description would otherwise be "Build with foo support"
 
   depends_on "sphinx-doc" => :build
 
