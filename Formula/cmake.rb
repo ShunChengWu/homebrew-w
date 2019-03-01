@@ -12,6 +12,9 @@ class Cmake < Formula
     sha256 "91f9da417aa3618fbf1af953188e64c6efd6f77aec56fc54c06e8acd339a6569" => :sierra
   end
 
+    option "with-foo", "Compile with foo bindings" # This overrides the generated description if you want to
+    depends_on "foo" => :optional # Generated description would otherwise be "Build with foo support"
+
   depends_on "sphinx-doc" => :build
 
   # The completions were removed because of problems with system bash
@@ -19,6 +22,7 @@ class Cmake < Formula
   # The `with-qt` GUI option was removed due to circular dependencies if
   # CMake is built with Qt support and Qt is built with MySQL support as MySQL uses CMake.
   # For the GUI application please instead use `brew cask install cmake`.
+
 
   def install
     args = %W[
@@ -34,6 +38,7 @@ class Cmake < Formula
       --system-zlib
       --system-bzip2
       --system-curl
+      --qt-gui
     ]
 
     # There is an existing issue around macOS & Python locale setting
