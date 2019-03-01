@@ -1,4 +1,4 @@
-class Cmake < Formula
+class Mkl < Formula
   desc "intel mkl-dnn"
   homepage "https://software.intel.com/en-us/mkl/"
   url "https://github.com/intel/mkl-dnn/releases/download/v0.17.4/mklml_mac_2019.0.1.20180928.tgz"
