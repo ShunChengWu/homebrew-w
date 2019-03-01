@@ -14,6 +14,8 @@ class Cmake < Formula
 #   depends_on "foo" => :optional # Generated description would otherwise be "Build with foo support"
 
 #  depends_on "sphinx-doc" => :build
+  depends_on "cmake" => :build
+  depends_on "doxygen" => :build
 
   # The completions were removed because of problems with system bash
 
@@ -22,17 +24,17 @@ class Cmake < Formula
   # For the GUI application please instead use `brew cask install cmake`.
 
 
-#  def install
-#    # There is an existing issue around macOS & Python locale setting
-#    # See https://bugs.python.org/issue18378#msg215215 for explanation
-#    ENV["LC_ALL"] = "en_US.UTF-8"
-#
-#    system "./bootstrap", *args, "--", "-DCMAKE_BUILD_TYPE=Release"
+  def install
+    # There is an existing issue around macOS & Python locale setting
+    # See https://bugs.python.org/issue18378#msg215215 for explanation
+    ENV["LC_ALL"] = "en_US.UTF-8"
+
+    system "cmake", ".", *std_cmake_args
 #    system "make"
-#    system "make", "install"
-#
+    system "make", "install"
+
 #    elisp.install "Auxiliary/cmake-mode.el"
-#  end
+  end
 
 #  test do
 #    (testpath/"CMakeLists.txt").write("find_package(Ruby)")
